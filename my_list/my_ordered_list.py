@@ -114,7 +114,7 @@ class OrderedList:
                 1.current.data==item:找到指定数值,found=true
                 2.current.data>item:当前节点数值>item,stop=true
                 3.current.data<item:没找到指定数值,记录当前节点并继续循环下一个节点,previous=current,current=current.next
-            3.找到数值才能更新(found=true),更新有两种情况:
+            3.找到数值并且没有停止循环才能更新(found==true and stop==false),更新有两种情况:
                 1.previous==None:表示第一个节点需要更改,即:head=current.next
                 2.previous!=None:标识需要将previous(前节点)指向current.next(后节点),
                 即:previous.next=current.next
@@ -134,13 +134,11 @@ class OrderedList:
                 found = True
             elif current.getData() > item:
                 stop = True
-                # 表示没有找到
-                found = False
             else:
                 previous = current
                 current = current.getNext()
-        # 首先必须要找到才会执行链表更改操作
-        if found:
+        # 首先必须要找到且没有停止循环才会执行链表更改操作
+        if found and not stop:
             # head就是需要找到的值
             if previous == None:
                 self.head = current.getNext()
@@ -158,10 +156,10 @@ class OrderedList:
             (current.data<item)
             2.遍历链表会出现一下几种判断:
                 1.current.data==item:找到指定数值,found=true
-                2.current.data>item:当前节点数值大于item,stop=true,found=false
+                2.current.data>item:当前节点数值大于item,stop=true
                 3.current.data<item:没找到指定数值,记录当前节点并继续循环下一个节点,
                 found=false,previous=current,current=current.next
-            3.找到数值才能更新(found=true),更新有两种情况:
+            3.找到数值并且没有停止循环才能更新(found==true and stop==false),更新有两种情况:
                 1.previous==None:表示第一个节点需要更改,且需将current指向head,方便继续
                 遍历,即:head=current.next,current=head
                 2.previous!=None:标识需要将previous(前节点)指向current.next(后节点),
@@ -183,15 +181,13 @@ class OrderedList:
                 found = True
             elif current.getData() > item:
                 stop = True
-                # 表示没有找到
-                found = False
             else:
                 # 需要删除多个相同的节点
                 found = False
                 previous = current
                 current = current.getNext()
-            # 首先必须要找到才会执行链表更改操作
-            if found:
+            # 首先必须要找到且没有停止循环才会执行链表更改操作
+            if found and not stop:
                 # head就是需要找到的值
                 if previous == None:
                     self.head = current.getNext()
