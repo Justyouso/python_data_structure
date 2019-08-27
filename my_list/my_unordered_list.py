@@ -64,6 +64,7 @@ class UnorderedList:
         :return: bool
         """
         current = self.head
+        # 标识是否找到数值
         found = False
         while current != None and not found:
             if current.getData() == item:
@@ -90,6 +91,7 @@ class UnorderedList:
         current = self.head
         # 前节点指针
         previous = None
+        # 标识是否找到数值
         found = False
         # 判断item是否存在链表中
         while current != None and not found:
@@ -129,6 +131,7 @@ class UnorderedList:
         current = self.head
         # 前节点指针
         previous = None
+        # 标识是否找到数值
         found = False
         # 判断item是否存在链表中
         while current != None:

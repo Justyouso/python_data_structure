@@ -50,8 +50,11 @@ class OrderedList:
         :return:
         """
         current = self.head
+        # 新节点
         temp = Node(data)
+        # 标识是否停止循环
         stop = False
+        # 前节点指针
         previous = None
         while current != None and not stop:
             if data <= current.getData():
@@ -87,7 +90,9 @@ class OrderedList:
         :return: bool
         """
         current = self.head
+        # 标识是否找到数值
         found = False
+        # 标识是否停止循环
         stop = False
         while current != None and not found and not stop:
             if current.getData() == item:
@@ -119,7 +124,9 @@ class OrderedList:
         current = self.head
         # 前节点指针
         previous = None
+        # 标识是否找到数值
         found = False
+        # 标识是否停止循环
         stop = False
         # 判断item是否存在链表中
         while current != None and not found and not stop:
@@ -166,7 +173,9 @@ class OrderedList:
         current = self.head
         # 前节点指针
         previous = None
+        # 标识是否找到数值
         found = False
+        # 标识是否停止循环
         stop = False
         # 判断item是否存在链表中
         while current != None and not stop:
