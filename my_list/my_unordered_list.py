@@ -133,10 +133,13 @@ class UnorderedList:
         previous = None
         # 标识是否找到数值
         found = False
+        # 标识是否删除成功
+        success = False
         # 判断item是否存在链表中
         while current != None:
             if current.getData() == item:
                 found = True
+                success = True
             else:
                 # 需要删除多个相同的节点
                 found = False
@@ -154,7 +157,7 @@ class UnorderedList:
                     # 将current->previous.next,继续遍历查找是否有需要删除的节点
                     current = previous.getNext()
 
-        return found
+        return success
 
 
 if __name__ == '__main__':
