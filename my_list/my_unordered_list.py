@@ -139,7 +139,6 @@ class UnorderedList:
         while current != None:
             if current.getData() == item:
                 found = True
-                success = True
             else:
                 # 需要删除多个相同的节点
                 found = False
@@ -156,6 +155,7 @@ class UnorderedList:
                     previous.setNext(current.getNext())
                     # 将current->previous.next,继续遍历查找是否有需要删除的节点
                     current = previous.getNext()
+                success = True
 
         return success
 
