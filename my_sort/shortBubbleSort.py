@@ -23,4 +23,5 @@ def shortBubblueSort(alist):
 
 
 alist = [5, 6, 1, 2, 3]
-print(shortBubblueSort(alist))
+shortBubblueSort(alist)
+print(alist)

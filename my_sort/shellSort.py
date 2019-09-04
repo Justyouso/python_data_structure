@@ -28,7 +28,12 @@ def gapInsertionSort(alist, start, gap):
     for index in range(start + gap, len(alist), gap):
         currentvalue = alist[index]
         position = index
-        while position != 0 and alist[position - gap] > currentvalue:
+        while position >=gap and alist[position - gap] > currentvalue:
             alist[position] = alist[position - gap]
             position = position - gap
         alist[position] = currentvalue
+
+
+alist = [54, 26, 93, 17, 77, 31, 44, 55, 20]
+shellSort(alist)
+print(alist)
